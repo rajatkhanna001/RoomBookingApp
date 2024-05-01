@@ -1,9 +1,9 @@
 # RoomBooking
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-Frontend: (Angular)
+# Frontend: (Angular)
 
-Prerequisites:
+# Prerequisites:
 
 Git
 MongoDB
@@ -12,7 +12,7 @@ Npm - 8.3.1
 IDE - VS Code, Eclipse, etc.
 Java - 17
 
-Steps to setup & run the frontend project:
+# Steps to setup & run the frontend project:
 
 1. Clone the repository using git clone.
 2. Open cmd and navigate to the "room-booking" folder and run below command.
@@ -32,9 +32,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Backend: (Java)
+# Backend: (Java)
 
-Steps to setup & run the frontend project:
+# Steps to setup & run the frontend project:
 
 1. Make sure that the repository is already cloned while cloning frontend.
 2. Import booking folder in any IDE like eclipse.
@@ -42,4 +42,15 @@ Steps to setup & run the frontend project:
 4. It will run the server on http://localhost:8080/.
 5. You can create new Room using endpoint.
             http://localhost:8080/room/create/
-6. DB query for rooms collection/table can be found at "/booking/src/main/resources/DB/rooms.json".
+
+# DB:
+
+1. Nvigate to /booking/src/main/resources/DB/rooms.json and copy all the content and paste it in rooms collection.
+2. Or you can also create rooms by below POST API endpoint.
+                        http://localhost:4200/room/
+   with below object:
+               {
+                "name":"Room10",
+                "capacity":"35",
+                "features":"large screen"
+               }
