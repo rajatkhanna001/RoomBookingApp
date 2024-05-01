@@ -14,7 +14,7 @@ export class RoomService {
   }
 
   getBookingByRoomId(roomId:string) {
-    return this.http.get("http://localhost:8080/room/bookings-by-room/"+roomId);
+    return this.http.get("http://localhost:8080/room/bookings-by-room/"+roomId, { withCredentials: true });
   }
 
   bookRoom(data:any) {

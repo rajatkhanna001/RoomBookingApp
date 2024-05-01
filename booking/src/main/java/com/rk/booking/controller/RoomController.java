@@ -77,7 +77,10 @@ public class RoomController {
 	
 	//Get Bookings By Room Id
 	@GetMapping("/bookings-by-room/{roomId}")
-	public ResponseEntity<?> getBookingsByRoomId(@PathVariable String roomId, HttpSession session) {
+	public ResponseEntity<?> getBookingsByRoomId(@PathVariable String roomId, HttpSession session, HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Credentials", "true");
+		response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE,PUT");
 		return ResponseEntity.ok(bookingService.getBookingsByRoomId(roomId));
 	}
 	

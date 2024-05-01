@@ -1,5 +1,3 @@
-Introduction!
-
 # RoomBooking
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
@@ -8,6 +6,7 @@ Frontend: (Angular)
 Prerequisites:
 
 Git
+MongoDB
 Node - v16.14.0
 Npm - 8.3.1
 IDE - VS Code, Eclipse, etc.
@@ -41,3 +40,6 @@ Steps to setup & run the frontend project:
 2. Import booking folder in any IDE like eclipse.
 3. Use Java 17 and run the project.
 4. It will run the server on http://localhost:8080/.
+5. You can create new Room using endpoint.
+            http://localhost:8080/room/create/
+6. DB query for rooms collection/table can be found at "/booking/src/main/resources/DB/rooms.json".

@@ -1,0 +1,28 @@
+db.getCollection('rooms').insertMany([
+/* 1 */
+{
+    "_id" : ObjectId("661c21fd636b59793ee6af70"),
+    "name" : "Room1",
+    "capacity" : "100",
+    "features" : "projector,sound",
+    "_class" : "com.rk.booking.entities.Room"
+},
+
+/* 2 */
+{
+    "_id" : ObjectId("661c2219636b59793ee6af71"),
+    "name" : "Room2",
+    "capacity" : "20",
+    "features" : "",
+    "_class" : "com.rk.booking.entities.Room"
+},
+
+/* 3 */
+{
+    "_id" : ObjectId("661c223f636b59793ee6af72"),
+    "name" : "Room3",
+    "capacity" : "3",
+    "features" : "large screen",
+    "_class" : "com.rk.booking.entities.Room"
+}
+])
