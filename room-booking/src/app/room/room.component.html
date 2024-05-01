@@ -1,0 +1,90 @@
+<div class="toolbar" role="banner">
+    <div class="spacer"></div>
+    <span>Room Booking System</span>
+    <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+    <form class="example-form col-6">
+        <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Search Rooms..." aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+    <button mat-stroked-button class="col-6" (click)="searchRoom()" style="width: 12%;">Search</button>
+
+</div>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <div class="col-12" style="height: 100%;">
+            <mat-card class="card" *ngFor="let room of rooms">
+                <div (click)="openRoom(room)" style="display: inherit;" class="col-12">
+                    <div class="col-6" stlye="margin: 10px;">
+                        <span>
+                            <h1>{{room.name}}</h1>
+                            <h3>{{room.status}}</h3>
+                        </span>
+                    </div>
+                    <div class="col-6" stlye="margin: 10px;">
+                        <span *ngIf="room.features.length > 0">
+                            <button mat-stroked-button *ngFor="let feature of room.features.split(',')">{{feature}}</button>
+                        </span>
+                        <span style="text-align: right;">
+                            <h2>{{room.capacity}} seat capacity</h2>
+                        </span>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="roomSelected">
+        <mat-card>
+            <div class="col-12" style="display: inherit;">
+                <div class="col-6" stlye="margin: 10px;">
+                    <span>
+                        <h1>{{roomDetails.name}}</h1>
+                    </span>
+                </div>
+                <div class="col-6" stlye="margin: 10px;">
+                    <span *ngIf="roomDetails.features.length > 0">
+                        <button mat-stroked-button *ngFor="let feature of roomDetails.features.split(',')">{{feature}}</button>
+                    </span>
+                    <span>
+                        <h2>{{roomDetails.capacity}} seat capacity</h2>
+                    </span>
+                </div>
+            </div>
+            <div class="col-12"  style="display: inherit;">
+                <div class="col-6" style="margin: 10px;">
+                    <mat-form-field>
+                        <input (dateInput)="onDateChange($event.value)" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6" style="margin: 10px;">
+                    <mat-form-field>
+                        <mat-select placeholder="Select Time Slot" (selectionChange)="selectTimeSlot($event.value)" multiple [disabled]="showSlotTime">
+                            <mat-option *ngFor="let time of timeSlots" [value]="time.value">
+                                <div *ngIf="alreadyBookedSlots.includes(selectedDate+'T'+time.value)">
+                                    <span style="color: red;">{{ time.value }}</span>
+                                </div>
+                                <div *ngIf="!alreadyBookedSlots.includes(selectedDate+'T'+time.value)">
+                                    <span>{{ time.value }}</span>
+                                </div>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="center-button">
+                <button mat-stroked-button (click)="bookRoom()">Book</button>
+            </div>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>  
