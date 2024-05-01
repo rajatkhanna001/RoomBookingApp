@@ -1,7 +1,7 @@
 # RoomBookingSystem
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-# Frontend: (Angular)
+# Frontend: (Angular) - room-booking
 
 # Prerequisites:
 
@@ -32,7 +32,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-# Backend: (Java)
+# Backend: (Java) - booking
 
 # Steps to setup & run the frontend project:
 
